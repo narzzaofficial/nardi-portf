@@ -20,6 +20,7 @@ export default function ArticlesAdmin() {
   const [readTime, setReadTime] = useState("");
   const [tag, setTag] = useState("");
   const [coverImageUrl, setCoverImageUrl] = useState("");
+  const [url, setUrl] = useState("");
   const [order, setOrder] = useState(0);
 
   const fetchItems = async () => {
@@ -41,6 +42,7 @@ export default function ArticlesAdmin() {
     setReadTime("");
     setTag("");
     setCoverImageUrl("");
+    setUrl("");
     setOrder(items.length);
     setIsEditing(true);
   };
@@ -53,6 +55,7 @@ export default function ArticlesAdmin() {
     setReadTime(item.readTime);
     setTag(item.tag);
     setCoverImageUrl(item.coverImageUrl || "");
+    setUrl(item.url || "");
     setOrder(item.order || 0);
     setIsEditing(true);
   };
@@ -60,7 +63,7 @@ export default function ArticlesAdmin() {
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    const data = { title, excerpt, date, readTime, tag, coverImageUrl, order };
+    const data = { title, excerpt, date, readTime, tag, coverImageUrl, url, order };
     
     if (id) {
       await updateItem(COLLECTIONS.ARTICLES, id, data);
@@ -102,6 +105,8 @@ export default function ArticlesAdmin() {
             <AdminInput label="Tag (e.g. AI Engineering)" value={tag} onChange={setTag} required />
             <AdminInput label="Sort Order" type="number" value={order.toString()} onChange={v => setOrder(parseInt(v) || 0)} />
           </div>
+
+          <AdminInput label="Article URL (LinkedIn, Medium, dll)" type="url" value={url} onChange={setUrl} placeholder="https://" />
 
           <ImageUploader label="Cover Image" value={coverImageUrl} onChange={setCoverImageUrl} />
 

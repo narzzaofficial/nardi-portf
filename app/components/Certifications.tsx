@@ -40,18 +40,19 @@ export default function Certifications() {
         </div>
       </div>
 
-      {/* Slider */}
-      <div className="relative flex overflow-hidden">
+      {/* Sliders Container */}
+      <div className="relative flex flex-col overflow-hidden gap-4 pb-4">
         {/* Edge masks */}
         <div className="absolute left-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
           style={{ background: "linear-gradient(to right, var(--bg-surface), transparent)" }} />
         <div className="absolute right-0 top-0 bottom-0 w-28 z-10 pointer-events-none"
           style={{ background: "linear-gradient(to left, var(--bg-surface), transparent)" }} />
 
-        <Marquee speed={30} pauseOnHover={true} gradient={false} className="py-4">
+        {/* First Row */}
+        <Marquee speed={30} pauseOnHover={true} gradient={false} className="py-2">
           {certs.map((c, i) => (
-            <div key={i} className="flex flex-col shrink-0 rounded-xl overflow-hidden group transition-all duration-300 hover:border-[rgba(var(--white-rgb),0.15)] mx-4"
-              style={{ width: 380, background: "var(--bg-card)", border: "1px solid rgba(var(--white-rgb),0.07)" }}>
+            <div key={`row1-${i}`} className="flex flex-col shrink-0 rounded-xl overflow-hidden group transition-all duration-300 hover:border-[rgba(var(--white-rgb),0.15)] mx-3"
+              style={{ width: 260, background: "var(--bg-card)", border: "1px solid rgba(var(--white-rgb),0.07)" }}>
               <div 
                 className="w-full aspect-[29.7/21] relative border-b border-[rgba(var(--white-rgb),0.05)] overflow-hidden flex items-center justify-center cursor-pointer" 
                 style={{ background: "rgba(0,0,0,0.3)" }}
@@ -63,9 +64,33 @@ export default function Certifications() {
                   <Award className="w-12 h-12" style={{ color: "rgba(139,92,246,0.2)" }} />
                 )}
               </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-base truncate leading-snug" style={{ color: "var(--text)" }}>{c.title}</h3>
-                <p className="text-xs mt-1.5" style={{ fontFamily: "var(--font-mono)", color: "#8b5cf6" }}>{c.issuer}</p>
+              <div className="p-4">
+                <h3 className="font-semibold text-sm md:text-[15px] truncate leading-snug" style={{ color: "var(--text)" }}>{c.title}</h3>
+                <p className="text-[11px] mt-1.5" style={{ fontFamily: "var(--font-mono)", color: "#8b5cf6" }}>{c.issuer}</p>
+              </div>
+            </div>
+          ))}
+        </Marquee>
+
+        {/* Second Row (Reversed) */}
+        <Marquee speed={30} direction="right" pauseOnHover={true} gradient={false} className="py-2">
+          {[...certs].reverse().map((c, i) => (
+            <div key={`row2-${i}`} className="flex flex-col shrink-0 rounded-xl overflow-hidden group transition-all duration-300 hover:border-[rgba(var(--white-rgb),0.15)] mx-3"
+              style={{ width: 260, background: "var(--bg-card)", border: "1px solid rgba(var(--white-rgb),0.07)" }}>
+              <div 
+                className="w-full aspect-[29.7/21] relative border-b border-[rgba(var(--white-rgb),0.05)] overflow-hidden flex items-center justify-center cursor-pointer" 
+                style={{ background: "rgba(0,0,0,0.3)" }}
+                onClick={() => c.imageUrl && setSelectedImg(c.imageUrl)}
+              >
+                {c.imageUrl ? (
+                  <img src={c.imageUrl} alt={c.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                ) : (
+                  <Award className="w-12 h-12" style={{ color: "rgba(139,92,246,0.2)" }} />
+                )}
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold text-sm md:text-[15px] truncate leading-snug" style={{ color: "var(--text)" }}>{c.title}</h3>
+                <p className="text-[11px] mt-1.5" style={{ fontFamily: "var(--font-mono)", color: "#8b5cf6" }}>{c.issuer}</p>
               </div>
             </div>
           ))}

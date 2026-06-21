@@ -120,5 +120,6 @@ export interface Article {
   readTime: string;
   tag: string;
   coverImageUrl?: string;
+  url?: string;
   order: number;
 }

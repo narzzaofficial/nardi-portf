@@ -43,8 +43,17 @@ export default function Articles() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
           {articles.map((a, i) => (
-            <motion.article key={a.id || i} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}}
-              className="group cursor-pointer">
+            <motion.a 
+              key={a.id || i} 
+              href={a.url || undefined}
+              target={a.url ? "_blank" : undefined}
+              rel={a.url ? "noopener noreferrer" : undefined}
+              initial={{opacity:0,y:20}} 
+              whileInView={{opacity:1,y:0}} 
+              viewport={{once:true}} 
+              transition={{duration:0.5,delay:i*0.1}}
+              className="group cursor-pointer block"
+            >
               <div className="h-36 md:h-44 rounded-2xl mb-4 relative overflow-hidden flex items-end p-4"
                 style={{
                   background: a.coverImageUrl ? `url(${a.coverImageUrl}) center/cover` : "var(--bg-card)", 
@@ -68,7 +77,7 @@ export default function Articles() {
                 {a.title}
               </h3>
               <p className="text-sm leading-relaxed" style={{color:"var(--text-muted)"}}>{a.excerpt}</p>
-            </motion.article>
+            </motion.a>
           ))}
         </div>
       </div>

@@ -62,9 +62,9 @@ const testimonials = [
 ];
 
 const articles = [
-  { title: "Building an AI-Powered Text-to-SQL System", excerpt: "How I used BigQuery, FastAPI, and LangChain to create a Slack bot that answers business questions instantly.", date: "Oct 12, 2023", readTime: "5 min", tag: "AI Engineering", order: 0 },
-  { title: "Why Modern Data Teams Need Agentic Workflows", excerpt: "Exploring the shift from static ETL pipelines to dynamic, LLM-driven data orchestration.", date: "Nov 04, 2023", readTime: "7 min", tag: "Data Engineering", order: 1 },
-  { title: "Designing Dashboards People Actually Use", excerpt: "UI/UX principles for data visualization - bridging the gap between raw numbers and human insight.", date: "Dec 18, 2023", readTime: "4 min", tag: "Design", order: 2 },
+  { title: "Building an AI-Powered Text-to-SQL System", excerpt: "How I used BigQuery, FastAPI, and LangChain to create a Slack bot that answers business questions instantly.", date: "Oct 12, 2023", readTime: "5 min", tag: "AI Engineering", url: "https://linkedin.com", order: 0 },
+  { title: "Why Modern Data Teams Need Agentic Workflows", excerpt: "Exploring the shift from static ETL pipelines to dynamic, LLM-driven data orchestration.", date: "Nov 04, 2023", readTime: "7 min", tag: "Data Engineering", url: "https://linkedin.com", order: 1 },
+  { title: "Designing Dashboards People Actually Use", excerpt: "UI/UX principles for data visualization - bridging the gap between raw numbers and human insight.", date: "Dec 18, 2023", readTime: "4 min", tag: "Design", url: "https://linkedin.com", order: 2 },
 ];
 
 export async function GET() {
