@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────
+   FORCE DARK MODE — hardcoded, tidak bergantung OS preference
+   ───────────────────────────────────────────────────────────── */
+
+/* Tailwind v4: aktifkan class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Design tokens ──────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg:          #0d0d0f;
+  --bg-surface:  #111114;
+  --bg-card:     #16161a;
+  --border:      rgba(255, 255, 255, 0.08);
+  --border-hover:rgba(255, 255, 255, 0.18);
+  --text:        #eeeef2;
+  --text-muted:  rgba(238, 238, 242, 0.45);
+  --blue:        #4f8ef7;
+  --purple:      #8b5cf6;
+  --green:       #34d399;
 }
 
+/* ─── Tailwind theme ─────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:    var(--font-body);
+  --font-mono:    var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Hard-force dark background everywhere ──────────────────── */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0d0f !important;
+  color: #eeeef2 !important;
+  font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
 }
+
+/* Override Tailwind's light-mode base reset */
+* {
+  box-sizing: border-box;
+}
+
+/* ─── Dot-grid background ────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Typography — heading font ─────────────────────────────── */
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  color: #eeeef2;
+}
+
+/* ─── Typography — mono ──────────────────────────────────────── */
+code, kbd, .font-mono {
+  font-family: var(--font-mono, monospace);
+}
+
+/* ─── Section separator ──────────────────────────────────────── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.12) 20%,
+    rgba(255,255,255,0.12) 80%,
+    transparent 100%
+  );
+}
+
+/* ─── Gradient text ──────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #4f8ef7 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card ───────────────────────────────────────────────────── */
+.card-glow {
+  background-color: #16161a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.card-glow:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 0 1px rgba(79,142,247,0.15), 0 16px 48px rgba(79,142,247,0.08);
+  background-color: #1a1a20;
+}
+
+/* ─── Admin Panel ────────────────────────────────────────────── */
+.admin-panel {
+  background-color: #16161a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+/* ─── Tag / pill ─────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: var(--font-mono, monospace);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: rgba(238,238,242,0.55);
+}
+
+/* ─── Infinite scroll ────────────────────────────────────────── */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-scroll-left {
+  animation: scroll-left 35s linear infinite;
+}
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0d0d0f; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* ─── Selection ──────────────────────────────────────────────── */
+::selection {
+  background: rgba(79,142,247,0.28);
+  color: #eeeef2;
+}
+
+/* ─── Bg surface utilities (hardcoded) ───────────────────────── */
+.bg-surface  { background-color: #111114; }
+.bg-card     { background-color: #16161a; }
+.text-body   { color: #eeeef2; }
+.text-muted  { color: rgba(238,238,242,0.45); }
+.text-subtle { color: rgba(238,238,242,0.28); }
