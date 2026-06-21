@@ -37,7 +37,7 @@ export default function Skills() {
               <div className="flex flex-wrap gap-2 md:hidden">
                 {cat.skills.map((skill, si) => (
                   <span key={si} className="px-2.5 py-1 rounded-md text-xs"
-                    style={{background:"rgba(var(--white-rgb),0.06)", border:"1px solid rgba(var(--white-rgb),0.1)", color:"rgba(var(--text-rgb),0.7)"}}>
+                    style={{background:"rgba(var(--white-rgb),0.06)", border:"1px solid rgba(var(--white-rgb),0.1)", color:"var(--text-muted)"}}>
                     {skill}
                   </span>
                 ))}
@@ -45,7 +45,7 @@ export default function Skills() {
               {/* On desktop: list style */}
               <ul className="hidden md:block space-y-2.5">
                 {cat.skills.map((skill, si) => (
-                  <li key={si} className="flex items-center gap-3 text-[15px]" style={{color:"rgba(var(--text-rgb),0.6)"}}>
+                  <li key={si} className="flex items-center gap-3 text-[15px]" style={{color:"var(--text-muted)"}}>
                     <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{background:cat.accent,opacity:0.6}}></span>
                     {skill}
                   </li>

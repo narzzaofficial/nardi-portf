@@ -66,20 +66,20 @@ export default function FeaturedProjects() {
                     )}
                     {p.sourceUrl && (
                       <a href={p.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs hover:opacity-70 transition-opacity"
-                        style={{fontFamily:"var(--font-mono)",color:"rgba(var(--text-rgb),0.35)"}}>
+                        style={{fontFamily:"var(--font-mono)",color:"var(--text-subtle)"}}>
                         <Github className="w-3.5 h-3.5" /> Source
                       </a>
                     )}
                   </div>
 
-                  <p className="text-sm md:text-[15px] leading-[1.75] mb-4" style={{color:"rgba(var(--text-rgb),0.48)"}}>{p.description}</p>
+                  <p className="text-sm md:text-[15px] leading-[1.75] mb-4" style={{color:"var(--text-muted)"}}>{p.description}</p>
 
                   {/* Impact */}
                   {p.impact && (
                     <div className="flex flex-wrap items-center gap-2 px-3 py-2 rounded-lg mb-4 w-fit"
                       style={{background:"rgba(var(--white-rgb),0.04)", border:`1px solid ${p.accent}25`}}>
                       <span className="text-xs uppercase tracking-wider shrink-0" style={{fontFamily:"var(--font-mono)",color:p.accent}}>Impact</span>
-                      <span className="text-xs md:text-sm" style={{color:"rgba(var(--text-rgb),0.7)"}}>{p.impact}</span>
+                      <span className="text-xs md:text-sm" style={{color:"var(--text-muted)"}}>{p.impact}</span>
                     </div>
                   )}
 

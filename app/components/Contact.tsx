@@ -22,7 +22,7 @@ export default function Contact() {
             <span className="gradient-text">Let's build it.</span>
           </h2>
           <p className="text-base mb-8 max-w-md mx-auto leading-relaxed"
-            style={{color:"rgba(var(--text-rgb),0.45)"}}>
+            style={{color:"var(--text-muted)"}}>
             I'm open to new opportunities — full-time roles or collaboration. Reach out anytime!
           </p>
 
@@ -43,11 +43,11 @@ export default function Contact() {
             ].map(({icon:Icon, href, label})=>(
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 className="flex items-center gap-2 text-sm font-medium transition-colors p-1"
-                style={{color:"rgba(var(--text-rgb),0.35)"}}>
+                style={{color:"var(--text-subtle)"}}>
                 <Icon className="w-5 h-5" /> {label}
               </a>
             ))}
-            <span className="flex items-center gap-1.5 text-sm" style={{color:"rgba(var(--text-rgb),0.25)"}}>
+            <span className="flex items-center gap-1.5 text-sm" style={{color:"var(--text-subtle)"}}>
               <MapPin className="w-4 h-4 shrink-0" /> Malaysia
             </span>
           </div>

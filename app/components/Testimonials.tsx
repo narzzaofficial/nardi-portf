@@ -41,7 +41,7 @@ export default function Testimonials() {
             <motion.div key={t.id || i} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}}
               className="card-glow p-6 md:p-8 relative">
               <Quote className="absolute top-5 right-5 w-7 h-7" style={{color:"rgba(var(--white-rgb),0.04)"}} />
-              <p className="text-sm leading-[1.8] mb-6" style={{color:"rgba(var(--text-rgb),0.55)"}}>"{t.text}"</p>
+              <p className="text-sm leading-[1.8] mb-6" style={{color:"var(--text-muted)"}}>"{t.text}"</p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
                   style={{background:"linear-gradient(135deg,#4f8ef7,#8b5cf6)",color:"#fff"}}>
@@ -49,7 +49,7 @@ export default function Testimonials() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-sm" style={{color:"var(--text)"}}>{t.author}</h4>
-                  <p className="text-xs" style={{color:"rgba(var(--text-rgb),0.4)"}}>{t.role}, {t.company}</p>
+                  <p className="text-xs" style={{color:"var(--text-muted)"}}>{t.role}, {t.company}</p>
                 </div>
               </div>
             </motion.div>

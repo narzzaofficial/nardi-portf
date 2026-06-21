@@ -35,14 +35,14 @@ export default function FAQ() {
               <button onClick={()=>setOpen(open===i?null:i)}
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none">
                 <span className="font-display font-semibold text-base pr-4" style={{color:"var(--text)"}}>{faq.question}</span>
-                <span className="shrink-0" style={{color:"rgba(var(--text-rgb),0.4)"}}>
+                <span className="shrink-0" style={{color:"var(--text-muted)"}}>
                   {open===i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </span>
               </button>
               <AnimatePresence>
                 {open===i && (
                   <motion.div initial={{height:0,opacity:0}} animate={{height:"auto",opacity:1}} exit={{height:0,opacity:0}} transition={{duration:0.3}}>
-                    <p className="px-6 pb-6 text-[15px] leading-[1.75]" style={{color:"rgba(var(--text-rgb),0.52)"}}>{faq.answer}</p>
+                    <p className="px-6 pb-6 text-[15px] leading-[1.75]" style={{color:"var(--text-muted)"}}>{faq.answer}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

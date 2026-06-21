@@ -23,7 +23,7 @@ export default function Hero() {
             style={{background:"rgba(var(--white-rgb),0.06)", border:"1px solid rgba(var(--white-rgb),0.1)"}}
           >
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 shrink-0" style={{boxShadow:"0 0 6px #34d399"}}></span>
-            <span className="text-xs font-medium" style={{color:"rgba(var(--text-rgb),0.6)", fontFamily:"var(--font-mono)", letterSpacing:"0.05em"}}>
+            <span className="text-xs font-medium" style={{color:"var(--text-muted)", fontFamily:"var(--font-mono)", letterSpacing:"0.05em"}}>
               Available for Opportunities
             </span>
           </motion.div>
@@ -50,7 +50,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.15 }}
             className="text-base md:text-lg mb-8 max-w-lg leading-[1.75]"
-            style={{color:"rgba(var(--text-rgb),0.5)"}}
+            style={{color:"var(--text-muted)"}}
           >
             Building robust data systems, intelligent AI-powered tools, and seamless
             full-stack applications — transforming raw data into actionable insights.
@@ -89,11 +89,11 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 2.5 }}
             className="mt-10 flex items-center gap-4"
           >
-            <span className="text-xs uppercase tracking-[0.2em]" style={{color:"rgba(var(--text-rgb),0.22)", fontFamily:"var(--font-mono)"}}>Find me on</span>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{color:"rgba(var(--text-rgb),0.35)"}}>
+            <span className="text-xs uppercase tracking-[0.2em]" style={{color:"var(--text-subtle)", fontFamily:"var(--font-mono)"}}>Find me on</span>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{color:"var(--text-subtle)"}}>
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{color:"rgba(var(--text-rgb),0.35)"}}>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{color:"var(--text-subtle)"}}>
               <Github className="w-5 h-5" />
             </a>
           </motion.div>

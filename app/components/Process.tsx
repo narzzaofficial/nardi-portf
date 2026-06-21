@@ -34,7 +34,7 @@ export default function Process() {
                 <s.icon className="w-5 h-5" style={{color:"#4f8ef7"}} />
               </div>
               <h3 className="font-display font-semibold text-sm md:text-base mb-2" style={{color:"var(--text)"}}>{s.title}</h3>
-              <p className="text-xs md:text-sm leading-relaxed" style={{color:"rgba(var(--text-rgb),0.45)"}}>{s.desc}</p>
+              <p className="text-xs md:text-sm leading-relaxed" style={{color:"var(--text-muted)"}}>{s.desc}</p>
             </motion.div>
           ))}
         </div>

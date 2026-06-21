@@ -36,7 +36,7 @@ export default function Articles() {
               Latest <span className="gradient-text">Thoughts.</span>
             </motion.h2>
           </div>
-          <a href="#" className="flex items-center text-sm font-semibold shrink-0" style={{color:"rgba(var(--text-rgb),0.5)"}}>
+          <a href="#" className="flex items-center text-sm font-semibold shrink-0" style={{color:"var(--text-muted)"}}>
             View all <ArrowRight className="ml-1.5 w-4 h-4" />
           </a>
         </div>
@@ -58,7 +58,7 @@ export default function Articles() {
                 </span>
               </div>
               <div className="flex items-center gap-3 mb-2 text-xs"
-                style={{fontFamily:"var(--font-mono)", color:"rgba(var(--text-rgb),0.35)"}}>
+                style={{fontFamily:"var(--font-mono)", color:"var(--text-subtle)"}}>
                 <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {a.date}</span>
                 <span>·</span>
                 <span>{a.readTime}</span>
@@ -67,7 +67,7 @@ export default function Articles() {
                 style={{color:"var(--text)"}}>
                 {a.title}
               </h3>
-              <p className="text-sm leading-relaxed" style={{color:"rgba(var(--text-rgb),0.45)"}}>{a.excerpt}</p>
+              <p className="text-sm leading-relaxed" style={{color:"var(--text-muted)"}}>{a.excerpt}</p>
             </motion.article>
           ))}
         </div>

@@ -42,7 +42,7 @@ export default function About() {
             ].map((para, i) => (
               <motion.p key={i} custom={i+2} initial="hidden" whileInView="visible" viewport={{once:true}} variants={T}
                 className="mb-4 leading-[1.8] text-sm md:text-[15px]"
-                style={{color:"rgba(var(--text-rgb),0.52)"}}>
+                style={{color:"var(--text-muted)"}}>
                 {para}
               </motion.p>
             ))}
@@ -58,7 +58,7 @@ export default function About() {
                   <item.icon className="w-5 h-5" style={{color: item.accent}} />
                 </div>
                 <h3 className="font-display font-semibold text-base mb-1.5" style={{color:"var(--text)"}}>{item.title}</h3>
-                <p className="text-sm leading-relaxed" style={{color:"rgba(var(--text-rgb),0.4)"}}>{item.desc}</p>
+                <p className="text-sm leading-relaxed" style={{color:"var(--text-muted)"}}>{item.desc}</p>
               </motion.div>
             ))}
           </div>

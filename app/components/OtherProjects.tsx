@@ -36,15 +36,15 @@ export default function OtherProjects() {
                 <FolderGit2 className="w-7 h-7" style={{color:"#4f8ef7"}} />
                 {p.liveUrl || p.sourceUrl ? (
                   <a href={p.liveUrl || p.sourceUrl} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#4f8ef7]" style={{color:"rgba(var(--text-rgb),0.5)"}} />
+                    <ExternalLink className="w-4 h-4 cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#4f8ef7]" style={{color:"var(--text-muted)"}} />
                   </a>
                 ) : null}
               </div>
               <h3 className="font-display font-bold text-base mb-2 group-hover:text-[#4f8ef7] transition-colors leading-snug" style={{color:"var(--text)"}}>{p.title}</h3>
-              <p className="text-sm mb-4 leading-relaxed" style={{color:"rgba(var(--text-rgb),0.45)"}}>{p.description}</p>
+              <p className="text-sm mb-4 leading-relaxed" style={{color:"var(--text-muted)"}}>{p.description}</p>
               <div className="flex flex-wrap gap-2">
                 {p.tech?.map((t,ti)=>(
-                  <span key={ti} style={{fontFamily:"var(--font-mono)",fontSize:"11px",color:"rgba(var(--text-rgb),0.4)"}}>{t}</span>
+                  <span key={ti} style={{fontFamily:"var(--font-mono)",fontSize:"11px",color:"var(--text-muted)"}}>{t}</span>
                 ))}
               </div>
             </motion.div>

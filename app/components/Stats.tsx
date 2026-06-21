@@ -23,7 +23,7 @@ export default function Stats() {
                 {stat.value}
               </div>
               <div className="text-xs uppercase tracking-[0.12em]"
-                style={{fontFamily:"var(--font-mono)", color:"rgba(var(--text-rgb),0.38)"}}>
+                style={{fontFamily:"var(--font-mono)", color:"var(--text-subtle)"}}>
                 {stat.label}
               </div>
             </motion.div>

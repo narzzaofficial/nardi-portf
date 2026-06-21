@@ -26,7 +26,7 @@ export default function Footer() {
             >
               Nardi<span className="gradient-text">.</span>
             </Link>
-            <p className="text-sm mt-2 max-w-xs" style={{ color: "rgba(var(--text-rgb),0.3)" }}>
+            <p className="text-sm mt-2 max-w-xs" style={{ color: "var(--text-subtle)" }}>
               Data Engineer &amp; AI Engineer building scalable, intelligent systems.
             </p>
           </div>
@@ -44,14 +44,14 @@ export default function Footer() {
                 style={{
                   background: "rgba(var(--white-rgb),0.05)",
                   border: "1px solid rgba(var(--white-rgb),0.08)",
-                  color: "rgba(var(--text-rgb),0.4)",
+                  color: "var(--text-muted)",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.color = "var(--text)";
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(var(--white-rgb),0.18)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(var(--text-rgb),0.4)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--text-muted)";
                   (e.currentTarget as HTMLElement).style.borderColor = "rgba(var(--white-rgb),0.08)";
                 }}
               >
@@ -68,7 +68,7 @@ export default function Footer() {
             borderTop: "1px solid rgba(var(--white-rgb),0.07)",
             fontFamily: "var(--font-mono)",
             fontSize: "12px",
-            color: "rgba(var(--text-rgb),0.22)",
+            color: "var(--text-subtle)",
           }}
         >
           <p>© {new Date().getFullYear()} Nardi. All rights reserved.</p>
