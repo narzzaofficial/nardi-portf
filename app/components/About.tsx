@@ -30,7 +30,7 @@ export default function About() {
             </motion.p>
             <motion.h2 custom={1} initial="hidden" whileInView="visible" viewport={{once:true}} variants={T}
               className="font-display font-bold mb-6"
-              style={{fontSize:"clamp(28px,5vw,48px)", lineHeight:1.1, color:"#eeeef2"}}>
+              style={{fontSize:"clamp(28px,5vw,48px)", lineHeight:1.1, color:"var(--text)"}}>
               I build systems that{" "}
               <span className="gradient-text">think.</span>
             </motion.h2>
@@ -42,7 +42,7 @@ export default function About() {
             ].map((para, i) => (
               <motion.p key={i} custom={i+2} initial="hidden" whileInView="visible" viewport={{once:true}} variants={T}
                 className="mb-4 leading-[1.8] text-sm md:text-[15px]"
-                style={{color:"rgba(238,238,242,0.52)"}}>
+                style={{color:"rgba(var(--text-rgb),0.52)"}}>
                 {para}
               </motion.p>
             ))}
@@ -57,8 +57,8 @@ export default function About() {
                   style={{background:`${item.accent}15`}}>
                   <item.icon className="w-5 h-5" style={{color: item.accent}} />
                 </div>
-                <h3 className="font-display font-semibold text-base mb-1.5" style={{color:"#eeeef2"}}>{item.title}</h3>
-                <p className="text-sm leading-relaxed" style={{color:"rgba(238,238,242,0.4)"}}>{item.desc}</p>
+                <h3 className="font-display font-semibold text-base mb-1.5" style={{color:"var(--text)"}}>{item.title}</h3>
+                <p className="text-sm leading-relaxed" style={{color:"rgba(var(--text-rgb),0.4)"}}>{item.desc}</p>
               </motion.div>
             ))}
           </div>

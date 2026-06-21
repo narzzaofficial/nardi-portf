@@ -1,24 +1,66 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────
-   FORCE DARK MODE — hardcoded, tidak bergantung OS preference
+   THEME VARIABLES
    ───────────────────────────────────────────────────────────── */
 
 /* Tailwind v4: aktifkan class-based dark mode */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ─── Design tokens ──────────────────────────────────────────── */
+/* LIGHT MODE (Default) */
 :root {
+  --bg:          #f8fafc; /* Slate 50 - clean, slightly cool white */
+  --bg-surface:  #f1f5f9; /* Slate 100 - beautiful subtle contrast */
+  --bg-card:     #f8fafc; /* Softer off-white instead of pure white */
+  --bg-card-hover: #f1f5f9; /* Slightly darker on hover for tactile feel */
+  --border:      rgba(15, 23, 42, 0.08); /* Slate 900 at 8% */
+  --border-hover:rgba(15, 23, 42, 0.16);
+  --text:        #0f172a; /* Slate 900 for crisp readability */
+  --text-muted:  #475569; /* Slate 600 */
+  --text-subtle: #94a3b8; /* Slate 400 */
+  --blue:        #3b82f6; /* slightly tweaked for light mode pop, or keep #4f8ef7 */
+  --purple:      #8b5cf6;
+  --green:       #10b981;
+  
+  --dot-color:   rgba(15, 23, 42, 0.05);
+  --tag-bg:      #f1f5f9;
+  --tag-border:  rgba(15, 23, 42, 0.06);
+  --tag-text:    #475569;
+
+  --text-rgb:    15, 23, 42;
+  --white-rgb:   15, 23, 42; /* Map the original white highlights to slate overlay */
+  --black-rgb:   255, 255, 255;
+
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 0 1px rgba(15, 23, 42, 0.08);
+  --card-shadow-hover: 0 12px 32px -4px rgba(59, 130, 246, 0.12), 0 0 1px rgba(59, 130, 246, 0.2);
+}
+
+/* DARK MODE */
+.dark {
   --bg:          #0d0d0f;
   --bg-surface:  #111114;
   --bg-card:     #16161a;
+  --bg-card-hover: #1a1a20;
   --border:      rgba(255, 255, 255, 0.08);
   --border-hover:rgba(255, 255, 255, 0.18);
   --text:        #eeeef2;
   --text-muted:  rgba(238, 238, 242, 0.45);
+  --text-subtle: rgba(238, 238, 242, 0.28);
   --blue:        #4f8ef7;
   --purple:      #8b5cf6;
   --green:       #34d399;
+
+  --dot-color:   rgba(255, 255, 255, 0.03);
+  --tag-bg:      rgba(255, 255, 255, 0.05);
+  --tag-border:  rgba(255, 255, 255, 0.09);
+  --tag-text:    rgba(238, 238, 242, 0.55);
+
+  --text-rgb:    238, 238, 242;
+  --white-rgb:   255, 255, 255;
+  --black-rgb:   13, 13, 15;
+
+  --card-shadow: none;
+  --card-shadow-hover: 0 0 0 1px rgba(79,142,247,0.15), 0 16px 48px rgba(79,142,247,0.08);
 }
 
 /* ─── Tailwind theme ─────────────────────────────────────────── */
@@ -27,17 +69,18 @@
   --font-mono:    var(--font-mono);
 }
 
-/* ─── Hard-force dark background everywhere ──────────────────── */
+/* ─── Base ───────────────────────────────────────────────────── */
 html,
 body {
-  background-color: #0d0d0f !important;
-  color: #eeeef2 !important;
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
   font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Override Tailwind's light-mode base reset */
@@ -50,17 +93,18 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
   background-size: 30px 30px;
   pointer-events: none;
   z-index: 0;
+  transition: background-image 0.3s ease;
 }
 
 /* ─── Typography — heading font ─────────────────────────────── */
 h1, h2, h3, h4, h5, h6, .font-display {
   font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
   letter-spacing: -0.02em;
-  color: #eeeef2;
+  color: var(--text);
 }
 
 /* ─── Typography — mono ──────────────────────────────────────── */
@@ -75,15 +119,15 @@ code, kbd, .font-mono {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255,255,255,0.12) 20%,
-    rgba(255,255,255,0.12) 80%,
+    var(--border) 20%,
+    var(--border) 80%,
     transparent 100%
   );
 }
 
 /* ─── Gradient text ──────────────────────────────────────────── */
 .gradient-text {
-  background: linear-gradient(135deg, #4f8ef7 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -91,22 +135,24 @@ code, kbd, .font-mono {
 
 /* ─── Card ───────────────────────────────────────────────────── */
 .card-glow {
-  background-color: #16161a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 16px;
+  box-shadow: var(--card-shadow);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 .card-glow:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 0 0 1px rgba(79,142,247,0.15), 0 16px 48px rgba(79,142,247,0.08);
-  background-color: #1a1a20;
+  border-color: var(--border-hover);
+  box-shadow: var(--card-shadow-hover);
+  background-color: var(--bg-card-hover);
 }
 
 /* ─── Admin Panel ────────────────────────────────────────────── */
 .admin-panel {
-  background-color: #16161a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ─── Tag / pill ─────────────────────────────────────────────── */
@@ -117,9 +163,10 @@ code, kbd, .font-mono {
   border-radius: 6px;
   font-size: 12px;
   font-family: var(--font-mono, monospace);
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.09);
-  color: rgba(238,238,242,0.55);
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--tag-text);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Infinite scroll ────────────────────────────────────────── */
@@ -136,19 +183,37 @@ code, kbd, .font-mono {
 
 /* ─── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #0d0d0f; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-subtle); }
 
 /* ─── Selection ──────────────────────────────────────────────── */
 ::selection {
   background: rgba(79,142,247,0.28);
-  color: #eeeef2;
+  color: var(--text);
+}
+
+/* ─── Navbar classes ─────────────────────────────────────────── */
+.nav-link {
+  color: var(--text-muted);
+}
+.nav-link:hover {
+  color: var(--text);
+  background: var(--tag-bg);
+}
+
+.hire-btn {
+  background: var(--tag-bg);
+  border: 1px solid var(--tag-border);
+  color: var(--text);
+}
+.hire-btn:hover {
+  background: var(--border-hover);
 }
 
 /* ─── Bg surface utilities (hardcoded) ───────────────────────── */
-.bg-surface  { background-color: #111114; }
-.bg-card     { background-color: #16161a; }
-.text-body   { color: #eeeef2; }
-.text-muted  { color: rgba(238,238,242,0.45); }
-.text-subtle { color: rgba(238,238,242,0.28); }
+.bg-surface  { background-color: var(--bg-surface); }
+.bg-card     { background-color: var(--bg-card); }
+.text-body   { color: var(--text); }
+.text-muted  { color: var(--text-muted); }
+.text-subtle { color: var(--text-subtle); }

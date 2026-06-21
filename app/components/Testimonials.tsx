@@ -31,7 +31,7 @@ export default function Testimonials() {
             Testimonials
           </motion.p>
           <motion.h2 initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"#eeeef2"}}>
+            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"var(--text)"}}>
             What People <span className="gradient-text">Say.</span>
           </motion.h2>
         </div>
@@ -40,16 +40,16 @@ export default function Testimonials() {
           {testimonials.map((t, i) => (
             <motion.div key={t.id || i} initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:i*0.1}}
               className="card-glow p-6 md:p-8 relative">
-              <Quote className="absolute top-5 right-5 w-7 h-7" style={{color:"rgba(255,255,255,0.04)"}} />
-              <p className="text-sm leading-[1.8] mb-6" style={{color:"rgba(238,238,242,0.55)"}}>"{t.text}"</p>
+              <Quote className="absolute top-5 right-5 w-7 h-7" style={{color:"rgba(var(--white-rgb),0.04)"}} />
+              <p className="text-sm leading-[1.8] mb-6" style={{color:"rgba(var(--text-rgb),0.55)"}}>"{t.text}"</p>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
                   style={{background:"linear-gradient(135deg,#4f8ef7,#8b5cf6)",color:"#fff"}}>
                   {t.author.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="font-semibold text-sm" style={{color:"#eeeef2"}}>{t.author}</h4>
-                  <p className="text-xs" style={{color:"rgba(238,238,242,0.4)"}}>{t.role}, {t.company}</p>
+                  <h4 className="font-semibold text-sm" style={{color:"var(--text)"}}>{t.author}</h4>
+                  <p className="text-xs" style={{color:"rgba(var(--text-rgb),0.4)"}}>{t.role}, {t.company}</p>
                 </div>
               </div>
             </motion.div>

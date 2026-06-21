@@ -17,37 +17,37 @@ export default function Contact() {
             Let's Talk
           </p>
           <h2 className="font-display font-extrabold mb-5 leading-[1.05]"
-            style={{fontSize:"clamp(28px,6vw,60px)",color:"#eeeef2"}}>
+            style={{fontSize:"clamp(28px,6vw,60px)",color:"var(--text)"}}>
             Got a project in mind?<br />
             <span className="gradient-text">Let's build it.</span>
           </h2>
           <p className="text-base mb-8 max-w-md mx-auto leading-relaxed"
-            style={{color:"rgba(238,238,242,0.45)"}}>
+            style={{color:"rgba(var(--text-rgb),0.45)"}}>
             I'm open to new opportunities — full-time roles or collaboration. Reach out anytime!
           </p>
 
           <div className="flex items-center justify-center mb-10">
             <a href="mailto:hello@example.com"
               className="flex items-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm transition-all hover:opacity-90 active:scale-95"
-              style={{background:"#eeeef2",color:"#0d0d0f"}}>
+              style={{background:"var(--text)",color:"var(--bg)"}}>
               <Mail className="w-4 h-4 shrink-0" />
               hello@example.com
             </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-6"
-            style={{borderTop:"1px solid rgba(255,255,255,0.07)"}}>
+            style={{borderTop:"1px solid rgba(var(--white-rgb),0.07)"}}>
             {[
-              { icon:Github,   href:"https://github.com",   label:"GitHub",   hoverColor:"#eeeef2" },
+              { icon:Github,   href:"https://github.com",   label:"GitHub",   hoverColor:"var(--text)" },
               { icon:Linkedin, href:"https://linkedin.com", label:"LinkedIn", hoverColor:"#4f8ef7" },
             ].map(({icon:Icon, href, label})=>(
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 className="flex items-center gap-2 text-sm font-medium transition-colors p-1"
-                style={{color:"rgba(238,238,242,0.35)"}}>
+                style={{color:"rgba(var(--text-rgb),0.35)"}}>
                 <Icon className="w-5 h-5" /> {label}
               </a>
             ))}
-            <span className="flex items-center gap-1.5 text-sm" style={{color:"rgba(238,238,242,0.25)"}}>
+            <span className="flex items-center gap-1.5 text-sm" style={{color:"rgba(var(--text-rgb),0.25)"}}>
               <MapPin className="w-4 h-4 shrink-0" /> Malaysia
             </span>
           </div>

@@ -23,7 +23,7 @@ export default function FAQ() {
             FAQ
           </motion.p>
           <motion.h2 initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-            className="font-display font-bold" style={{fontSize:"clamp(32px,5vw,48px)",color:"#eeeef2"}}>
+            className="font-display font-bold" style={{fontSize:"clamp(32px,5vw,48px)",color:"var(--text)"}}>
             Quick <span className="gradient-text">Answers.</span>
           </motion.h2>
         </div>
@@ -34,15 +34,15 @@ export default function FAQ() {
               className="card-glow overflow-hidden">
               <button onClick={()=>setOpen(open===i?null:i)}
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                <span className="font-display font-semibold text-base pr-4" style={{color:"#eeeef2"}}>{faq.question}</span>
-                <span className="shrink-0" style={{color:"rgba(238,238,242,0.4)"}}>
+                <span className="font-display font-semibold text-base pr-4" style={{color:"var(--text)"}}>{faq.question}</span>
+                <span className="shrink-0" style={{color:"rgba(var(--text-rgb),0.4)"}}>
                   {open===i ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                 </span>
               </button>
               <AnimatePresence>
                 {open===i && (
                   <motion.div initial={{height:0,opacity:0}} animate={{height:"auto",opacity:1}} exit={{height:0,opacity:0}} transition={{duration:0.3}}>
-                    <p className="px-6 pb-6 text-[15px] leading-[1.75]" style={{color:"rgba(238,238,242,0.52)"}}>{faq.answer}</p>
+                    <p className="px-6 pb-6 text-[15px] leading-[1.75]" style={{color:"rgba(var(--text-rgb),0.52)"}}>{faq.answer}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

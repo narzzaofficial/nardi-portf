@@ -1,13 +1,13 @@
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { v2 as cloudinary } from "cloudinary";
 import { NextRequest, NextResponse } from "next/server";
 
-const R2 = new S3Client({
-  region: "auto",
-  endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
-  credentials: {
-    accessKeyId: process.env.R2_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
-  },
+export const runtime = "nodejs";
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 export async function POST(req: NextRequest) {
@@ -31,26 +31,23 @@ export async function POST(req: NextRequest) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const ext = file.name.split(".").pop() ?? "jpg";
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).slice(2, 8);
-    const key = `portfolio/${timestamp}-${random}.${ext}`;
 
-    await R2.send(
-      new PutObjectCommand({
-        Bucket: process.env.R2_BUCKET_NAME!,
-        Key: key,
-        Body: buffer,
-        ContentType: file.type,
-        // Cache images for 1 year
-        CacheControl: "public, max-age=31536000",
-      })
-    );
+    // Upload to Cloudinary using upload_stream
+    const uploadResult = await new Promise((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "portfolio" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        }
+      );
+      uploadStream.end(buffer);
+    });
 
-    const publicUrl = `${process.env.R2_PUBLIC_URL}/${key}`;
+    const publicUrl = (uploadResult as any).secure_url;
     return NextResponse.json({ url: publicUrl }, { status: 200 });
   } catch (err) {
-    console.error("R2 upload error:", err);
+    console.error("Cloudinary upload error:", err);
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }

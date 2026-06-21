@@ -12,7 +12,7 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="py-16 md:py-28" style={{background:"#111114"}}>
+    <section className="py-16 md:py-28" style={{background:"var(--bg-surface)"}}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="mb-10 md:mb-16 text-center">
           <motion.p initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5}}
@@ -20,7 +20,7 @@ export default function Process() {
             How I Work
           </motion.p>
           <motion.h2 initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"#eeeef2"}}>
+            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"var(--text)"}}>
             My <span className="gradient-text">Process.</span>
           </motion.h2>
         </div>
@@ -33,8 +33,8 @@ export default function Process() {
                 style={{background:"rgba(79,142,247,0.1)",border:"1px solid rgba(79,142,247,0.2)"}}>
                 <s.icon className="w-5 h-5" style={{color:"#4f8ef7"}} />
               </div>
-              <h3 className="font-display font-semibold text-sm md:text-base mb-2" style={{color:"#eeeef2"}}>{s.title}</h3>
-              <p className="text-xs md:text-sm leading-relaxed" style={{color:"rgba(238,238,242,0.45)"}}>{s.desc}</p>
+              <h3 className="font-display font-semibold text-sm md:text-base mb-2" style={{color:"var(--text)"}}>{s.title}</h3>
+              <p className="text-xs md:text-sm leading-relaxed" style={{color:"rgba(var(--text-rgb),0.45)"}}>{s.desc}</p>
             </motion.div>
           ))}
         </div>

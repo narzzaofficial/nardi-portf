@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./providers";
 
 // Poppins — geometric sans, clean, modern, not flat-looking
 const poppins = Poppins({
@@ -29,9 +30,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth dark`}
+      className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

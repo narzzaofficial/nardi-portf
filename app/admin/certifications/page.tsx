@@ -78,8 +78,8 @@ export default function CertificationsAdmin() {
       <div className="max-w-3xl">
         <div className="flex items-center justify-between mb-8">
           <h1 className="font-display font-bold text-2xl">{id ? "Edit Certification" : "New Certification"}</h1>
-          <button onClick={() => setIsEditing(false)} className="p-2 hover:bg-[rgba(255,255,255,0.05)] rounded-lg transition-colors">
-            <X className="w-5 h-5 text-[rgba(238,238,242,0.5)]" />
+          <button onClick={() => setIsEditing(false)} className="p-2 hover:bg-[var(--tag-bg)] rounded-lg transition-colors">
+            <X className="w-5 h-5 text-[var(--text-muted)]" />
           </button>
         </div>
 
@@ -97,11 +97,11 @@ export default function CertificationsAdmin() {
           <ImageUploader label="Credential Badge/Image (Optional)" value={imageUrl} onChange={setImageUrl} />
 
           <div className="pt-4 flex gap-4">
-            <button type="submit" disabled={saving} className="flex-1 bg-[#eeeef2] text-[#0d0d0f] font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 disabled:opacity-50">
+            <button type="submit" disabled={saving} className="flex-1 bg-[var(--text)] text-[var(--bg)] font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 disabled:opacity-50">
               {saving ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
               {saving ? "Saving..." : "Save Certification"}
             </button>
-            <button type="button" onClick={() => setIsEditing(false)} className="px-6 py-3 rounded-xl border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)] transition-colors">
+            <button type="button" onClick={() => setIsEditing(false)} className="px-6 py-3 rounded-xl border border-[var(--border)] hover:bg-[var(--tag-bg)] transition-colors">
               Cancel
             </button>
           </div>
@@ -115,7 +115,7 @@ export default function CertificationsAdmin() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="font-display font-bold text-3xl mb-1">Certifications</h1>
-          <p className="text-[rgba(238,238,242,0.5)]">Manage your credentials and courses.</p>
+          <p className="text-[var(--text-muted)]">Manage your credentials and courses.</p>
         </div>
         <button onClick={openNew} className="bg-[#4f8ef7] text-white px-4 py-2.5 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-600 transition-colors">
           <Plus className="w-4 h-4" /> Add Certification
@@ -128,7 +128,7 @@ export default function CertificationsAdmin() {
         </div>
       ) : items.length === 0 ? (
         <div className="text-center py-20 admin-panel">
-          <p className="text-[rgba(238,238,242,0.5)] mb-4">No certifications added yet.</p>
+          <p className="text-[var(--text-muted)] mb-4">No certifications added yet.</p>
           <button onClick={openNew} className="text-[#4f8ef7] font-semibold hover:underline">Add your first certification</button>
         </div>
       ) : (
@@ -140,15 +140,15 @@ export default function CertificationsAdmin() {
                   <Award className="w-5 h-5 text-[#8b5cf6]" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#eeeef2] line-clamp-1">{item.title}</h3>
-                  <p className="text-sm text-[rgba(238,238,242,0.5)]">{item.issuer}</p>
+                  <h3 className="font-semibold text-[var(--text)] line-clamp-1">{item.title}</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{item.issuer}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button onClick={() => openEdit(item)} className="p-2 hover:bg-[rgba(255,255,255,0.05)] rounded-md text-[rgba(238,238,242,0.5)] hover:text-[#4f8ef7] transition-colors">
+                <button onClick={() => openEdit(item)} className="p-2 hover:bg-[var(--tag-bg)] rounded-md text-[var(--text-muted)] hover:text-[#4f8ef7] transition-colors">
                   <Pencil className="w-4 h-4" />
                 </button>
-                <button onClick={() => handleDelete(item.id!)} className="p-2 hover:bg-[rgba(255,255,255,0.05)] rounded-md text-[rgba(238,238,242,0.5)] hover:text-[#f87171] transition-colors">
+                <button onClick={() => handleDelete(item.id!)} className="p-2 hover:bg-[var(--tag-bg)] rounded-md text-[var(--text-muted)] hover:text-[#f87171] transition-colors">
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>

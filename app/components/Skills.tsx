@@ -19,7 +19,7 @@ export default function Skills() {
             Core Skills
           </motion.p>
           <motion.h2 initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"#eeeef2"}}>
+            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"var(--text)"}}>
             My Tech <span className="gradient-text">Stack.</span>
           </motion.h2>
         </div>
@@ -37,7 +37,7 @@ export default function Skills() {
               <div className="flex flex-wrap gap-2 md:hidden">
                 {cat.skills.map((skill, si) => (
                   <span key={si} className="px-2.5 py-1 rounded-md text-xs"
-                    style={{background:"rgba(255,255,255,0.06)", border:"1px solid rgba(255,255,255,0.1)", color:"rgba(238,238,242,0.7)"}}>
+                    style={{background:"rgba(var(--white-rgb),0.06)", border:"1px solid rgba(var(--white-rgb),0.1)", color:"rgba(var(--text-rgb),0.7)"}}>
                     {skill}
                   </span>
                 ))}
@@ -45,7 +45,7 @@ export default function Skills() {
               {/* On desktop: list style */}
               <ul className="hidden md:block space-y-2.5">
                 {cat.skills.map((skill, si) => (
-                  <li key={si} className="flex items-center gap-3 text-[15px]" style={{color:"rgba(238,238,242,0.6)"}}>
+                  <li key={si} className="flex items-center gap-3 text-[15px]" style={{color:"rgba(var(--text-rgb),0.6)"}}>
                     <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{background:cat.accent,opacity:0.6}}></span>
                     {skill}
                   </li>

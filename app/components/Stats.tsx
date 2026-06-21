@@ -11,7 +11,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-12 md:py-16" style={{background:"#111114"}}>
+    <section className="py-12 md:py-16" style={{background:"var(--bg-surface)"}}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
           {stats.map((stat, i) => (
@@ -23,7 +23,7 @@ export default function Stats() {
                 {stat.value}
               </div>
               <div className="text-xs uppercase tracking-[0.12em]"
-                style={{fontFamily:"var(--font-mono)", color:"rgba(238,238,242,0.38)"}}>
+                style={{fontFamily:"var(--font-mono)", color:"rgba(var(--text-rgb),0.38)"}}>
                 {stat.label}
               </div>
             </motion.div>

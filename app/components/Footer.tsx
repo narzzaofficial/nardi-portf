@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer
       className="pt-16 pb-8"
-      style={{ borderTop: "1px solid rgba(255,255,255,0.07)", background: "#0d0d0f" }}
+      style={{ borderTop: "1px solid rgba(var(--white-rgb),0.07)", background: "var(--bg)" }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top row */}
@@ -22,11 +22,11 @@ export default function Footer() {
             <Link
               href="#"
               className="font-display font-bold text-2xl"
-              style={{ color: "#eeeef2", letterSpacing: "-0.02em" }}
+              style={{ color: "var(--text)", letterSpacing: "-0.02em" }}
             >
               Nardi<span className="gradient-text">.</span>
             </Link>
-            <p className="text-sm mt-2 max-w-xs" style={{ color: "rgba(238,238,242,0.3)" }}>
+            <p className="text-sm mt-2 max-w-xs" style={{ color: "rgba(var(--text-rgb),0.3)" }}>
               Data Engineer &amp; AI Engineer building scalable, intelligent systems.
             </p>
           </div>
@@ -42,17 +42,17 @@ export default function Footer() {
                 aria-label={label}
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-all"
                 style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  color: "rgba(238,238,242,0.4)",
+                  background: "rgba(var(--white-rgb),0.05)",
+                  border: "1px solid rgba(var(--white-rgb),0.08)",
+                  color: "rgba(var(--text-rgb),0.4)",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "#eeeef2";
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.18)";
+                  (e.currentTarget as HTMLElement).style.color = "var(--text)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(var(--white-rgb),0.18)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.color = "rgba(238,238,242,0.4)";
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)";
+                  (e.currentTarget as HTMLElement).style.color = "rgba(var(--text-rgb),0.4)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(var(--white-rgb),0.08)";
                 }}
               >
                 <Icon className="w-4 h-4" />
@@ -65,10 +65,10 @@ export default function Footer() {
         <div
           className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8"
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.07)",
+            borderTop: "1px solid rgba(var(--white-rgb),0.07)",
             fontFamily: "var(--font-mono)",
             fontSize: "12px",
-            color: "rgba(238,238,242,0.22)",
+            color: "rgba(var(--text-rgb),0.22)",
           }}
         >
           <p>© {new Date().getFullYear()} Nardi. All rights reserved.</p>

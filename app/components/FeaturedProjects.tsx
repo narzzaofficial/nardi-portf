@@ -33,7 +33,7 @@ export default function FeaturedProjects() {
             Featured Projects
           </motion.p>
           <motion.h2 initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.5,delay:0.1}}
-            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"#eeeef2"}}>
+            className="font-display font-bold" style={{fontSize:"clamp(28px,5vw,48px)",color:"var(--text)"}}>
             Selected <span className="gradient-text">Work.</span>
           </motion.h2>
         </div>
@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
                     <span className="font-display font-extrabold select-none leading-none"
                       style={{fontSize:"clamp(28px,6vw,52px)", color:`${p.accent}30`}}>{p.number}</span>
                     <h3 className="font-display font-bold leading-tight"
-                      style={{fontSize:"clamp(17px,3vw,24px)", color:"#eeeef2"}}>{p.title}</h3>
+                      style={{fontSize:"clamp(17px,3vw,24px)", color:"var(--text)"}}>{p.title}</h3>
                   </div>
 
                   {/* Links */}
@@ -66,20 +66,20 @@ export default function FeaturedProjects() {
                     )}
                     {p.sourceUrl && (
                       <a href={p.sourceUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs hover:opacity-70 transition-opacity"
-                        style={{fontFamily:"var(--font-mono)",color:"rgba(238,238,242,0.35)"}}>
+                        style={{fontFamily:"var(--font-mono)",color:"rgba(var(--text-rgb),0.35)"}}>
                         <Github className="w-3.5 h-3.5" /> Source
                       </a>
                     )}
                   </div>
 
-                  <p className="text-sm md:text-[15px] leading-[1.75] mb-4" style={{color:"rgba(238,238,242,0.48)"}}>{p.description}</p>
+                  <p className="text-sm md:text-[15px] leading-[1.75] mb-4" style={{color:"rgba(var(--text-rgb),0.48)"}}>{p.description}</p>
 
                   {/* Impact */}
                   {p.impact && (
                     <div className="flex flex-wrap items-center gap-2 px-3 py-2 rounded-lg mb-4 w-fit"
-                      style={{background:"rgba(255,255,255,0.04)", border:`1px solid ${p.accent}25`}}>
+                      style={{background:"rgba(var(--white-rgb),0.04)", border:`1px solid ${p.accent}25`}}>
                       <span className="text-xs uppercase tracking-wider shrink-0" style={{fontFamily:"var(--font-mono)",color:p.accent}}>Impact</span>
-                      <span className="text-xs md:text-sm" style={{color:"rgba(238,238,242,0.7)"}}>{p.impact}</span>
+                      <span className="text-xs md:text-sm" style={{color:"rgba(var(--text-rgb),0.7)"}}>{p.impact}</span>
                     </div>
                   )}
 
@@ -94,7 +94,7 @@ export default function FeaturedProjects() {
                 {/* Image */}
                 {p.imageUrl && (
                   <div className="w-full md:w-[400px] shrink-0">
-                    <img src={p.imageUrl} alt={p.title} className="w-full h-auto rounded-xl border object-cover shadow-lg" style={{borderColor:"rgba(255,255,255,0.1)", aspectRatio:"16/9"}} />
+                    <img src={p.imageUrl} alt={p.title} className="w-full h-auto rounded-xl border object-cover shadow-lg" style={{borderColor:"rgba(var(--white-rgb),0.1)", aspectRatio:"16/9"}} />
                   </div>
                 )}
               </div>

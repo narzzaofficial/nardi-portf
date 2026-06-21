@@ -19,7 +19,7 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0d0d0f]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[var(--bg)]"
         >
           {/* Animated rings */}
           <div className="relative flex items-center justify-center mb-8">

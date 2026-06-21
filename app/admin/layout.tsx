@@ -48,7 +48,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#0d0d0f]">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--bg)]">
         <Loader2 className="w-8 h-8 animate-spin text-[#4f8ef7]" />
       </div>
     );
@@ -62,12 +62,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-[#0d0d0f] flex flex-col md:flex-row font-sans text-[#eeeef2]">
+    <div className="min-h-screen flex flex-col md:flex-row font-sans transition-colors duration-300" style={{ background: "var(--bg)", color: "var(--text)" }}>
       {/* Sidebar */}
-      <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r border-[rgba(255,255,255,0.07)] bg-[#111114] flex flex-col">
+      <aside className="w-full md:w-64 border-b md:border-b-0 md:border-r flex flex-col transition-colors duration-300"
+        style={{ borderColor: "var(--border)", background: "var(--bg-surface)" }}>
         <div className="p-6">
           <Link href="/admin" className="font-display font-bold text-xl tracking-tight">
-            Nardi<span className="text-[#4f8ef7]">.</span> Admin
+            Nardi<span style={{ color: "var(--blue)" }}>.</span> Admin
           </Link>
         </div>
         <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
@@ -75,9 +76,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             const isActive = pathname === l.href;
             return (
               <Link key={l.href} href={l.href}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  isActive ? "bg-[rgba(79,142,247,0.15)] text-[#4f8ef7]" : "text-[rgba(238,238,242,0.6)] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#eeeef2]"
-                }`}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors"
+                style={{
+                  background: isActive ? "rgba(59, 130, 246, 0.15)" : "transparent",
+                  color: isActive ? "var(--blue)" : "var(--text-muted)",
+                }}
               >
                 <l.icon className="w-4 h-4" />
                 {l.label}
@@ -85,10 +88,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             );
           })}
         </nav>
-        <div className="p-4 border-t border-[rgba(255,255,255,0.07)]">
+        <div className="p-4 border-t transition-colors duration-300" style={{ borderColor: "var(--border)" }}>
           <button 
             onClick={() => signOut(auth)}
-            className="flex items-center gap-2 w-full px-3 py-2 text-sm text-[rgba(238,238,242,0.5)] hover:text-[#f87171] transition-colors rounded-lg hover:bg-[rgba(248,113,113,0.1)]"
+            className="flex items-center gap-2 w-full px-3 py-2 text-sm transition-colors rounded-lg hover:bg-[rgba(248,113,113,0.1)] hover:text-[#f87171]"
+            style={{ color: "var(--text-muted)" }}
           >
             <LogOut className="w-4 h-4" />
             Logout
