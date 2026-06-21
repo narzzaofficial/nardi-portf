@@ -145,7 +145,7 @@ export default function ArticlesAdmin() {
           {items.map(item => (
             <div key={item.id} className="admin-panel p-5 flex flex-col group">
               <div className="flex justify-between items-start mb-3">
-                <span className="text-[10px] px-2 py-1 rounded-full bg-[var(--tag-bg)] text-[rgba(238,238,242,0.7)] uppercase tracking-wider">
+                <span className="text-[10px] px-2 py-1 rounded-full bg-[var(--tag-bg)] text-[var(--text-muted)] uppercase tracking-wider">
                   {item.tag}
                 </span>
                 <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -158,7 +158,7 @@ export default function ArticlesAdmin() {
                 </div>
               </div>
               <h3 className="font-semibold text-[var(--text)] mb-1 line-clamp-2">{item.title}</h3>
-              <div className="flex items-center gap-2 text-xs text-[rgba(238,238,242,0.4)] mb-3 font-mono">
+              <div className="flex items-center gap-2 text-xs text-[var(--text-muted)] opacity-70 mb-3 font-mono">
                 <Calendar className="w-3 h-3" /> {item.date} &bull; {item.readTime}
               </div>
               <p className="text-sm text-[var(--text-muted)] line-clamp-2">{item.excerpt}</p>

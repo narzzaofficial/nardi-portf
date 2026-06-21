@@ -46,7 +46,14 @@ export default function FeaturedProjects() {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
                 style={{background:`radial-gradient(600px at 0% 50%, ${p.accent}10, transparent 60%)`}} />
 
-              <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10">
+              {/* Card Overlay Link */}
+              {(p.liveUrl || p.sourceUrl) && (
+                <a href={p.liveUrl || p.sourceUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 z-0">
+                  <span className="sr-only">View {p.title}</span>
+                </a>
+              )}
+
+              <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-10 pointer-events-none">
                 <div className="flex-1">
                   {/* Number + title row */}
                   <div className="flex items-center gap-3 mb-3">
@@ -57,7 +64,7 @@ export default function FeaturedProjects() {
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4 mb-4">
+                  <div className="flex gap-4 mb-4 relative z-20 pointer-events-auto">
                     {p.liveUrl && (
                       <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs transition-opacity hover:opacity-60"
                         style={{fontFamily:"var(--font-mono)",color:p.accent}}>

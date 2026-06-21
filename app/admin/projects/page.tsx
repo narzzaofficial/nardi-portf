@@ -190,9 +190,9 @@ export default function ProjectsAdmin() {
                 <div>
                   <h3 className="font-semibold text-[var(--text)] flex items-center gap-2">
                     {item.title}
-                    {item.featured && <span className="text-[10px] px-1.5 py-0.5 rounded bg-[rgba(255,255,255,0.1)] text-[rgba(238,238,242,0.6)] uppercase tracking-wider">Featured</span>}
+                    {item.featured && <span className="text-[10px] px-1.5 py-0.5 rounded bg-[var(--tag-bg)] text-[var(--text-muted)] uppercase tracking-wider">Featured</span>}
                   </h3>
-                  <p className="text-sm text-[rgba(238,238,242,0.4)] truncate max-w-md">{item.description}</p>
+                  <p className="text-sm text-[var(--text-muted)] opacity-70 truncate max-w-md">{item.description}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">

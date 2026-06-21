@@ -14,9 +14,8 @@ export function AdminInput({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5"
-        style={{color:"rgba(238,238,242,0.5)"}}>
-        {label}{required && <span style={{color:"#f87171"}}> *</span>}
+      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5 text-[var(--text-muted)]">
+        {label}{required && <span className="text-red-400"> *</span>}
       </label>
       <input
         type={type}
@@ -24,14 +23,7 @@ export function AdminInput({
         onChange={e => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
-        style={{
-          background: "rgba(255,255,255,0.05)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          color: "#eeeef2",
-        }}
-        onFocus={e => (e.currentTarget.style.borderColor = "#4f8ef7")}
-        onBlur={e  => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] focus:border-[#4f8ef7]"
       />
     </div>
   );
@@ -49,9 +41,8 @@ export function AdminTextarea({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5"
-        style={{color:"rgba(238,238,242,0.5)"}}>
-        {label}{required && <span style={{color:"#f87171"}}> *</span>}
+      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5 text-[var(--text-muted)]">
+        {label}{required && <span className="text-red-400"> *</span>}
       </label>
       <textarea
         value={value}
@@ -59,14 +50,7 @@ export function AdminTextarea({
         placeholder={placeholder}
         rows={rows}
         required={required}
-        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none"
-        style={{
-          background: "rgba(255,255,255,0.05)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          color: "#eeeef2",
-        }}
-        onFocus={e => (e.currentTarget.style.borderColor = "#4f8ef7")}
-        onBlur={e  => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all resize-none bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] focus:border-[#4f8ef7]"
       />
     </div>
   );
@@ -91,18 +75,15 @@ export function AdminTagInput({
 
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5"
-        style={{color:"rgba(238,238,242,0.5)"}}>
+      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5 text-[var(--text-muted)]">
         {label}
-        <span className="ml-1 normal-case font-normal" style={{color:"rgba(238,238,242,0.3)"}}>
+        <span className="ml-1 normal-case font-normal opacity-70">
           (press Enter to add)
         </span>
       </label>
-      <div className="rounded-lg px-3 py-2 min-h-[44px] flex flex-wrap gap-2 cursor-text"
-        style={{background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.1)"}}>
+      <div className="rounded-lg px-3 py-2 min-h-[44px] flex flex-wrap gap-2 cursor-text bg-[var(--bg)] border border-[var(--border)] focus-within:border-[#4f8ef7] transition-all">
         {value.map((tag, i) => (
-          <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs"
-            style={{background:"rgba(79,142,247,0.15)", color:"#4f8ef7"}}>
+          <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs bg-[#4f8ef7]/15 text-[#4f8ef7]">
             {tag}
             <button type="button" onClick={() => onChange(value.filter((_,j) => j !== i))}
               className="hover:opacity-60 transition-opacity">×</button>
@@ -112,8 +93,7 @@ export function AdminTagInput({
           type="text"
           onKeyDown={handleKeyDown}
           placeholder={value.length === 0 ? placeholder : ""}
-          className="flex-1 min-w-20 bg-transparent outline-none text-sm"
-          style={{color:"#eeeef2"}}
+          className="flex-1 min-w-20 bg-transparent outline-none text-sm text-[var(--text)]"
         />
       </div>
     </div>
@@ -130,22 +110,16 @@ export function AdminSelect({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5"
-        style={{color:"rgba(238,238,242,0.5)"}}>
+      <label className="block text-xs font-semibold uppercase tracking-widest mb-1.5 text-[var(--text-muted)]">
         {label}
       </label>
       <select
         value={value}
         onChange={e => onChange(e.target.value)}
-        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none"
-        style={{
-          background: "#1a1a20",
-          border: "1px solid rgba(255,255,255,0.1)",
-          color: "#eeeef2",
-        }}
+        className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] focus:border-[#4f8ef7]"
       >
         {options.map(o => (
-          <option key={o.value} value={o.value}>{o.label}</option>
+          <option key={o.value} value={o.value} className="bg-[var(--bg)]">{o.label}</option>
         ))}
       </select>
     </div>

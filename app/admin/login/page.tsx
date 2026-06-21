@@ -33,8 +33,8 @@ export default function LoginPage() {
       <div className="min-h-screen flex items-center justify-center bg-[var(--bg)] p-4 relative overflow-hidden">
         <div className="w-full max-w-md p-8 rounded-2xl relative z-10 text-center" style={{background: "var(--bg-card)", border: "1px solid var(--border)"}}>
           <h2 className="font-display font-bold text-2xl text-[#f87171] mb-4">Setup Required</h2>
-          <p className="text-[rgba(238,238,242,0.6)] leading-relaxed">
-            Firebase is not configured yet. Please copy <code className="bg-[rgba(255,255,255,0.1)] px-1.5 py-0.5 rounded text-[var(--text)]">.env.local.example</code> to <code className="bg-[rgba(255,255,255,0.1)] px-1.5 py-0.5 rounded text-[var(--text)]">.env.local</code> and fill in your Firebase API keys to enable the admin panel.
+          <p className="text-[var(--text-muted)] leading-relaxed">
+            Firebase is not configured yet. Please copy <code className="bg-[var(--tag-bg)] px-1.5 py-0.5 rounded text-[var(--text)]">.env.local.example</code> to <code className="bg-[var(--tag-bg)] px-1.5 py-0.5 rounded text-[var(--text)]">.env.local</code> and fill in your Firebase API keys to enable the admin panel.
           </p>
         </div>
       </div>
@@ -65,10 +65,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
-              style={{background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#eeeef2"}}
-              onFocus={e => (e.currentTarget.style.borderColor = "#4f8ef7")}
-              onBlur={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+              className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] focus:border-[#4f8ef7]"
               required
             />
           </div>
@@ -80,10 +77,7 @@ export default function LoginPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all"
-              style={{background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#eeeef2"}}
-              onFocus={e => (e.currentTarget.style.borderColor = "#4f8ef7")}
-              onBlur={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+              className="w-full rounded-lg px-3.5 py-2.5 text-sm outline-none transition-all bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] focus:border-[#4f8ef7]"
               required
             />
           </div>

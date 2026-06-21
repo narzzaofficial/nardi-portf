@@ -59,12 +59,12 @@ export default function AdminDashboard() {
                 <div className="p-3 rounded-xl" style={{background: `${s.color}15`}}>
                   <s.icon className="w-6 h-6" style={{color: s.color}} />
                 </div>
-                <span className="font-display font-extrabold text-4xl text-[rgba(238,238,242,0.1)] group-hover:text-[rgba(238,238,242,0.2)] transition-colors">
+                <span className="font-display font-extrabold text-4xl text-[var(--text)] opacity-10 group-hover:opacity-20 transition-opacity">
                   {s.count}
                 </span>
               </div>
               <h3 className="font-display font-bold text-lg">{s.label}</h3>
-              <p className="text-sm text-[rgba(238,238,242,0.4)] mt-1">Manage items &rarr;</p>
+              <p className="text-sm text-[var(--text-muted)] opacity-70 mt-1">Manage items &rarr;</p>
             </motion.div>
           </Link>
         ))}

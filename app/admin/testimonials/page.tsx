@@ -135,11 +135,11 @@ export default function TestimonialsAdmin() {
           {items.map(item => (
             <div key={item.id} className="admin-panel p-6 flex flex-col sm:flex-row gap-6 justify-between group">
               <div className="flex-1">
-                <Quote className="w-6 h-6 text-[rgba(255,255,255,0.1)] mb-2" />
-                <p className="text-sm text-[rgba(238,238,242,0.8)] italic mb-4">"{item.text}"</p>
+                <Quote className="w-6 h-6 text-[var(--border)] mb-2" />
+                <p className="text-sm text-[var(--text-muted)] italic mb-4">"{item.text}"</p>
                 <div>
                   <h4 className="font-semibold text-[var(--text)] text-sm">{item.author}</h4>
-                  <p className="text-xs text-[rgba(238,238,242,0.4)]">{item.role}, {item.company}</p>
+                  <p className="text-xs text-[var(--text-muted)] opacity-70">{item.role}, {item.company}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
