@@ -62,7 +62,7 @@ export default function Navbar() {
             ))}
             <ThemeToggle />
             <a
-              href="mailto:hello@example.com"
+              href="mailto:nardi.workers@gmail.com"
               className="ml-3 px-4 py-2 rounded-lg text-sm font-semibold transition-all hire-btn"
             >
               Hire Me

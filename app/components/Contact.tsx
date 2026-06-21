@@ -27,19 +27,19 @@ export default function Contact() {
           </p>
 
           <div className="flex items-center justify-center mb-10">
-            <a href="mailto:hello@example.com"
+            <a href="mailto:nardi.workers@gmail.com"
               className="flex items-center gap-2.5 px-6 py-4 rounded-xl font-bold text-sm transition-all hover:opacity-90 active:scale-95"
               style={{ background: "var(--text)", color: "var(--bg)" }}>
               <Mail className="w-4 h-4 shrink-0" />
-              hello@example.com
+              nardi.workers@gmail.com
             </a>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-6"
             style={{ borderTop: "1px solid rgba(var(--white-rgb),0.07)" }}>
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub", hoverColor: "var(--text)" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn", hoverColor: "#4f8ef7" },
+              { icon: Github, href: "https://github.com/nardi-nardi", label: "GitHub", hoverColor: "var(--text)" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/nardinardi", label: "LinkedIn", hoverColor: "#4f8ef7" },
             ].map(({ icon: Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer"
                 className="flex items-center gap-2 text-sm font-medium transition-colors p-1"

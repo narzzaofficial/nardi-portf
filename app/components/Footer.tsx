@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter } from "./icons";
 
 const socials = [
-  { Icon: Github,   href: "https://github.com",   label: "GitHub" },
-  { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { Icon: Github,   href: "https://github.com/nardi-nardi",   label: "GitHub" },
+  { Icon: Linkedin, href: "https://www.linkedin.com/in/nardinardi", label: "LinkedIn" },
   { Icon: Twitter,  href: "https://twitter.com",  label: "Twitter" },
 ];
 

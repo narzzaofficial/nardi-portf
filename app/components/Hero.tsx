@@ -90,10 +90,10 @@ export default function Hero() {
             className="mt-10 flex items-center gap-4"
           >
             <span className="text-xs uppercase tracking-[0.2em]" style={{ color: "var(--text-subtle)", fontFamily: "var(--font-mono)" }}>Find me on</span>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{ color: "var(--text-subtle)" }}>
+            <a href="https://www.linkedin.com/in/nardinardi" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{ color: "var(--text-subtle)" }}>
               <Linkedin className="w-5 h-5" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{ color: "var(--text-subtle)" }}>
+            <a href="https://github.com/nardi-nardi" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg transition-colors" style={{ color: "var(--text-subtle)" }}>
               <Github className="w-5 h-5" />
             </a>
           </motion.div>
