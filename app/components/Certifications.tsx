@@ -84,7 +84,7 @@ export default function Certifications() {
             onClick={() => setSelectedImg(null)}
           >
             <button 
-              className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              className="absolute top-4 right-4 md:top-6 md:right-6 p-2.5 rounded-full bg-black/60 text-white hover:bg-black/80 backdrop-blur-md transition-all shadow-lg z-50"
               onClick={() => setSelectedImg(null)}
             >
               <X className="w-6 h-6" />
