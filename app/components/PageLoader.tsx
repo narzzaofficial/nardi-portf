@@ -21,26 +21,16 @@ export default function PageLoader() {
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[var(--bg)]"
         >
-          {/* Animated rings */}
-          <div className="relative flex items-center justify-center mb-8">
-            <motion.div
-              className="absolute w-24 h-24 rounded-full border border-blue-500/30"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          {/* Stationary Logo */}
+          <div className="relative flex items-center justify-center mb-10">
+            <motion.img
+              src="/loading.png"
+              alt="Loading"
+              className="relative w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             />
-            <motion.div
-              className="absolute w-16 h-16 rounded-full border border-purple-500/40"
-              animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-            />
-            {/* Core logo mark */}
-            <motion.div
-              className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center"
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <span className="text-white font-bold text-xl" style={{ fontFamily: "var(--font-display)" }}>N</span>
-            </motion.div>
           </div>
 
           {/* Loading bar */}
